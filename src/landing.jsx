@@ -14,7 +14,7 @@ useEffect(() => {
 const camera = new THREE.PerspectiveCamera( 75, containerSize.offsetWidth / containerSize.offsetHeight, 0.1, 10000 );//create camera object
 const renderer = new THREE.WebGLRenderer({antialias: true});//create renderer object
 console.log(containerSize)
-renderer.setSize( containerSize.offsetWidth, containerSize.offsetHeight );//set size of renderer which is height and width of window
+renderer.setSize( containerSize.offsetWidth, containerSize.offsetHeight );//set size of renderer which is height and width of DIV
 renderer.setPixelRatio(window.devicePixelRatio)  //sharpen the image
 
 // document.body.appendChild( renderer.domElement );//adding to HTML body 
@@ -64,23 +64,58 @@ console.log(starVertices);
 starGeometry.setAttribute('position', new THREE.Float32BufferAttribute(starVertices, 3));//set attribute of starGeometry
 
 
+
+//data points
+
+
+function createPoints(lat , lng){
+  const points = new THREE.Mesh( new THREE.SphereGeometry( 0.1, 50, 50 ), new THREE.MeshBasicMaterial( {color: 0xff0000} ) );//create sphere object with Mesh Ggeometry and Custom ShaderMaterial
+  
+
+
+  //mexico 23.6345° N, 102.5528° W
+const latitude = (lat/ 180) * Math.PI ;
+const longitude = (lng/ 180) * Math.PI ;
+const radius = 5;
+
+
+const x = radius * Math.cos(latitude) * Math.sin(longitude);
+const y = radius * Math.sin(latitude);
+const z = radius * Math.cos(latitude) * Math.cos(longitude);
+
+points.position.set(x,y,z);
+
+group.add(points)
+
+}
+
+createPoints(23.6345 ,-102.5528) // mexico
+createPoints(20.5937, 78.9629) // india
+createPoints(61.5240 ,105.3188) // russia
+createPoints(35.8617 ,104.1954) // china
+
+sphere.rotation.y = -Math.PI / 2;
+
 camera.position.z = 15; //set camera position to z-index of 15
+
+
+
 
 const mouse = {
   x: undefined,
-  y: undefined
+  y: undefined // intializ mosue movement to undefined
 }
 
-let isClicked = false;
+let isClicked = false;   
 
 function animate() {
   requestAnimationFrame( animate );
   renderer.render( scene, camera );
-  sphere.rotation.y += 0.001; //adding rortaion to sphere Eluers angles in radians
+  // sphere.rotation.y += 0.001; //adding rortaion to sphere Eluers angles in radians
   gsap.to(group.rotation, {
-    x: -mouse.y * 0.2,
-    y: mouse.x * 0.5,
-    duration:3
+    x: -mouse.y * 1.8,
+    y: mouse.x * 1.8,
+    duration:1
 })}
 
 // console.log(animate)  
@@ -106,7 +141,7 @@ animate()
 
 
 
-const handleMouseMove = (event) => {
+const handleMouseMove = (event) => {     //track mouse movement using event listner
   mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
   mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
 };
@@ -115,7 +150,7 @@ window.addEventListener('mousemove', handleMouseMove);
 
 // Clean up event listener
 return () => {
-  window.removeEventListener('mousemove', handleMouseMove);
+  window.removeEventListener('mousemove', handleMouseMove); //remove event listner as to Why it causes DOM to render twice causing two instances of same 3D model
   dummy.removeChild(renderer.domElement);
 };
 
@@ -123,7 +158,7 @@ return () => {
 
 
   return (
-    <div id="right" style={{width:'100%' , height:'100%'}}>
+    <div id="right" style={{width:'100%' , height:'100%'}}>   
         </div>  
   )
 }
