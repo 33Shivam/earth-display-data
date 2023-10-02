@@ -125,21 +125,20 @@ function animate() {
 animate()
 
 
-// addEventListener('mousedown', () => {
-//   isClicked = true;
-// });
+addEventListener('mousedown', () => {
+  isClicked = true;
+});
 
-// addEventListener('mouseup', () => {
-//   isClicked = false;
-// });
-
-// addEventListener('mousemove', (event) => {
-//   if (isClicked) {
-//     mouse.x = (event.clientX / innerWidth) * 2 - 1;
-//     mouse.y = (event.clientY / innerHeight) * 2 + 1;
-//     // console.log(mouse);
-//   }
-// });
+addEventListener('mouseup', () => {
+  isClicked = false;
+});
+addEventListener('mousemove', (event) => {
+  if (isClicked) {
+    mouse.x = (event.clientX / innerWidth) * 2 - 1;
+    mouse.y = (event.clientY / innerHeight) * 2 + 1;
+    // console.log(mouse);
+  }
+});
 
 
 
