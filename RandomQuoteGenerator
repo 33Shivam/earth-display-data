@@ -1,0 +1,14 @@
+import random
+import string
+
+def generate_random_code(length):
+    characters = string.ascii_letters + string.digits
+    return ''.join(random.choice(characters) for _ in range(length))
+
+if __name__ == "__main__":
+    code = generate_random_code(10)  # Change the length as needed
+    print(f"Random Code: {code}")
+git init
+git add random_code_generator.py
+git commit -m "Add random code generator"
+git remote add origin https://github.com/your-username/earth-display-data.git
