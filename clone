@@ -1,0 +1,19 @@
+To clone a GitHub repository to your local machine, you can use the `git` command-line tool. Here's how you can clone the repository at https://github.com/33Shivam/earth-display-data:
+
+1. Open a terminal or command prompt on your local machine.
+
+2. Navigate to the directory where you want to clone the repository. You can use the `cd` command to change your working directory. For example:
+
+   ```bash
+   cd /path/to/your/desired/directory
+   ```
+
+3. Clone the repository using the following command:
+
+   ```bash
+   git clone https://github.com/33Shivam/earth-display-data.git
+   ```
+
+4. You may be prompted to enter your GitHub username and password, or if you have two-factor authentication enabled, you'll need to provide a personal access token. Once you've provided the required credentials, the repository will be cloned to your local machine.
+
+This will create a new directory named "earth-display-data" in your current location, which contains all the files and history from the GitHub repository. You can then work with the repository on your local machine.
