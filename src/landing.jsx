@@ -94,6 +94,7 @@ createPoints(20.5937, 78.9629) // india
 createPoints(61.5240 ,105.3188) // russia
 createPoints(35.8617 ,104.1954) // china
 createPoints(60.4720, 8.4689 ) // norway
+createPoints(56.2639, 9.5018) // denmark  
 
 sphere.rotation.y = -Math.PI / 2;
 
