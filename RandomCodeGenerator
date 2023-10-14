@@ -1,0 +1,31 @@
+It can clone the repository and generate random code from it on your local machine using programming tools and scripts.
+
+To generate random code from the repository you provided, you can follow these general steps:
+
+1. Clone the repository to your local machine using Git:
+
+   ```bash
+   git clone https://github.com/33Shivam/earth-display-data.git
+   ```
+
+2. Explore the repository's files and folders to identify the code or scripts you want to generate randomly.
+
+3. Use a programming language of your choice (Python, JavaScript, etc.) to create a script that selects a random code snippet from the identified files. You can use libraries like `random` to assist with this.
+
+Here's a simple example in Python that selects a random line from a file:
+
+```python
+import random
+
+# Specify the path to the file you want to select code from
+file_path = "path/to/your/file.txt"
+
+with open(file_path, "r") as file:
+    lines = file.readlines()
+    random_line = random.choice(lines)
+    print(random_line)
+```
+
+Remember to replace `"path/to/your/file.txt"` with the actual path to the file containing code in the cloned repository. You can adapt this script according to your specific requirements.
+
+Please note that generating random code from a repository might not always yield valid or functional code, so you should be cautious and ensure that the code is used appropriately and safely.
