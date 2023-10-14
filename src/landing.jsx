@@ -89,6 +89,7 @@ group.add(points)
 
 }
 
+createPoints(25.2744, 133.7751)//Australia  
 createPoints(23.6345 ,-102.5528) // mexico
 createPoints(20.5937, 78.9629) // india
 createPoints(61.5240 ,105.3188) // russia
